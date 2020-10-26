@@ -6,4 +6,6 @@ app.use((ctx) => {
   ctx.response.body = "Hello Deno!";
 });
 
+console.log("Server listening...")
+
 await app.listen("127.0.0.1:65000");
