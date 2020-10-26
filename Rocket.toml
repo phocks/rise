@@ -1,8 +1,0 @@
-[development]
-port = 65000
-
-[staging]
-port = 65000
-
-[production]
-port = 65000
