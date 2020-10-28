@@ -1,6 +1,24 @@
-import { Application } from "https://deno.land/x/oak/mod.ts";
+import { Application, Router } from "https://deno.land/x/oak/mod.ts";
+import { green, yellow } from "https://deno.land/std@0.53.0/fmt/colors.ts";
+import { CasualDB } from "./lib/CasualDB/mod.ts";
+// import { CasualDB } from "https://deno.land/x/casualdb/mod.ts";
 
 const app = new Application();
+const port: number = 65000;
+
+interface Schema {
+  count: number;
+}
+
+const db = new CasualDB<Schema>(); // instantiate the db, casually 🤓
+await db.connect("./.data/data.json"); // "connect" to the db (JSON file)
+
+// (optional) seed it with data, if starting with an empty db
+// await db.seed({
+//   count: 0,
+// });
+
+
 
 // Logger
 app.use(async (ctx, next) => {
@@ -17,11 +35,22 @@ app.use(async (ctx, next) => {
   ctx.response.headers.set("X-Response-Time", `${ms}ms`);
 });
 
-// Hello World!
-app.use((ctx) => {
-  ctx.response.body = "Hello Deno!";
+const router = new Router();
+router.get("/", async ({ response }: { response: any }) => {
+  const count = await db.get<Schema["count"]>("count");
+  await db.write("count", count.value() + 1);
+
+  response.body = {
+    count: count.value(),
+  };
+});
+app.use(router.routes());
+app.use(router.allowedMethods());
+
+app.addEventListener("listen", ({ secure, hostname, port }) => {
+  const protocol = secure ? "https://" : "http://";
+  const url = `${protocol}${hostname ?? "localhost"}:${port}`;
+  console.log(`${yellow("Listening on:")} ${green(url)}`);
 });
 
-console.log("Server listening...")
-
-await app.listen({ port: 65000 });
+await app.listen({ port });
