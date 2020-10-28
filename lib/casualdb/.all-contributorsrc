@@ -1,0 +1,58 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "abinavseelan",
+      "name": "Abinav Seelan",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6417910?v=4",
+      "profile": "https://abinavseelan.com/?utm_source=github&utm_medium=documentation-allcontributors&utm_content=casualdb",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas",
+        "test"
+      ]
+    },
+    {
+      "login": "rheaditi",
+      "name": "Aditi Mohanty",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/6426069?v=4",
+      "profile": "https://aditimohanty.com/?utm_source=github&utm_medium=documentation-allcontributors&utm_content=casualdb",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas",
+        "test"
+      ]
+    },
+    {
+      "login": "Tezza48",
+      "name": "William Terry",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/12277149?v=4",
+      "profile": "http://www.willterry.me",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "kebot",
+      "name": "Keith Yao",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/289392?v=4",
+      "profile": "http://yaofur.com/",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "casualdb",
+  "projectOwner": "campvanilla",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
