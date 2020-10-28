@@ -1,6 +1,6 @@
 import { Application, Router } from "https://deno.land/x/oak/mod.ts";
 import { green, yellow } from "https://deno.land/std@0.53.0/fmt/colors.ts";
-import { CasualDB } from "./lib/CasualDB/mod.ts";
+import { CasualDB } from "./lib/casualdb/mod.ts";
 // import { CasualDB } from "https://deno.land/x/casualdb/mod.ts";
 
 const app = new Application();
